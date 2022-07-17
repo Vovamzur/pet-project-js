@@ -14,14 +14,23 @@ export default function App() {
 
   const observer = useRef()
   const lastBookElementRef = useCallback(node => {
-    if (loading) return
-    if (observer.current) observer.current.disconnect()
+    if (loading) {
+      return
+    }
+
+    if (observer.current) {
+      observer.current.disconnect()
+    }
+
     observer.current = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting && hasMore) {
         setPageNumber(prevPageNumber => prevPageNumber + 1)
       }
     })
-    if (node) observer.current.observe(node)
+
+    if (node) {
+      observer.current.observe(node)
+    }
   }, [loading, hasMore])
 
   function handleSearch(e) {
@@ -44,4 +53,3 @@ export default function App() {
     </>
   )
 }
-

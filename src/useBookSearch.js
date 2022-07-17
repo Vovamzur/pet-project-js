@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
+
+const RESOURCE_URL = 'http://openlibrary.org/search.json'
+
+const unique = (array) => [...new Set(array)]
 
 export default function useBookSearch(query, pageNumber) {
   const [loading, setLoading] = useState(true)
@@ -12,26 +15,37 @@ export default function useBookSearch(query, pageNumber) {
   }, [query])
 
   useEffect(() => {
-    setLoading(true)
+    const abortControler = new AbortController()
+
     setError(false)
-    let cancel
-    axios({
-      method: 'GET',
-      url: 'http://openlibrary.org/search.json',
-      params: { q: query, page: pageNumber },
-      cancelToken: new axios.CancelToken(c => cancel = c)
-    }).then(res => {
-      setBooks(prevBooks => {
-        return [...new Set([...prevBooks, ...res.data.docs.map(b => b.title)])]
-      })
-      setHasMore(res.data.docs.length > 0)
-      setLoading(false)
-    }).catch(e => {
-      if (axios.isCancel(e)) return
-      setError(true)
+    setLoading(true)
+
+    const searchParams = new URLSearchParams({
+      q: query,
+      page: pageNumber
     })
-    return () => cancel()
+
+    fetch(`${RESOURCE_URL}?${searchParams}`, {signal: abortControler.signal})
+      .then(response => response.json())
+      .then(data => {
+        const titles = data.docs.map(d => d.title)
+        setBooks(prevBooks => unique([...prevBooks, ...titles]))
+        setHasMore(titles.length > 0)
+      })
+      .catch(err => {
+        setError(true)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
+
+    return () => abortControler.abort()
   }, [query, pageNumber])
 
-  return { loading, error, books, hasMore }
+  return {
+    loading,
+    error,
+    books,
+    hasMore
+  }
 }
