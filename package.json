@@ -1,31 +1,41 @@
 {
-  "name": "react-infinite-scrolling",
-  "version": "0.1.0",
+  "name": "test-project",
   "private": true,
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1"
+  "engines": {
+    "node": ">=16",
+    "npm": ">=8 <9"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "lint:editorconfig": "editorconfig-checker",
+    "lint:fs": "ls-lint",
+    "lint:client:css": "cd client && npm run lint:css",
+    "lint:client:js": "cd client && npm run lint:js",
+    "lint:client": "cd client && npm run lint",
+    "lint:server:js": "cd server && npm run lint:js",
+    "lint:server": "cd server && npm run lint",
+    "lint:css": "npm run lint:client:css",
+    "lint:js": "npm run lint:server:js && npm run lint:client:js",
+    "lint": "npm run lint:editorconfig && npm run lint:fs && npm run lint:client && npm run lint:server",
+    "install:client": "cd client && npm install",
+    "install:server": "cd server && npm install",
+    "install:all": "npm install && npm run install:client && npm run install:server",
+    "build:client": "cd client && npm run build",
+    "build:server": "cd server && npm run build",
+    "build": "npm run build:client && npm run build:server",
+    "test:client": "cd client && npm test",
+    "test:server": "cd server && npm test",
+    "test": "npm run test:client && npm run test:server",
+    "start": ""
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "devDependencies": {
+    "@ls-lint/ls-lint": "^1.11.2",
+    "editorconfig-checker": "^4.0.2",
+    "eslint": "^8.20.0",
+    "lint-staged": "^13.0.3",
+    "simple-git-hooks": "^2.8.0",
+    "standard": "^17.0.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
   }
 }

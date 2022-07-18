@@ -1,0 +1,18 @@
+{
+  "name": "server",
+  "engines": {
+    "node": ">=16",
+    "npm": ">=8 <9"
+  },
+  "main": "index.js",
+  "scripts": {
+    "lint:js": "npx eslint \"src/**/*.js\"",
+    "lint": "npm run lint:js",
+    "start:dev": "",
+    "start": "",
+    "build": "",
+    "test": ""
+  },
+  "author": "Volodymyr Mazur",
+  "license": "ISC"
+}
