@@ -1,5 +1,7 @@
 extends:
   - ../.eslintrc.yml
+  - standard-jsx
+  - standard-react
 
 env:
   browser: true
@@ -7,3 +9,6 @@ env:
 settings:
   react:
     version: '18'
+
+rules:
+  jsx-quotes: ["error", "prefer-double"]
