@@ -1,8 +1,0 @@
-{
-  "files.exclude": {
-    "**/.git": false
-  },
-  "editor.tabSize": 2,
-  "files.eol": "\n",
-  "editor.formatOnSave": true
-}
