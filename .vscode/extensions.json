@@ -1,3 +1,18 @@
 {
-  "recommendations": []
+  "recommendations": [
+    "EditorConfig.EditorConfig",
+    "CoenraadS.bracket-pair-colorizer",
+    "streetsidesoftware.code-spell-checker",
+    "mikestead.dotenv",
+    "dbaeumer.vscode-eslint",
+    "sleistner.vscode-fileutils",
+    "donjayamanne.githistory",
+    "eamodio.gitlens",
+    "vincaslt.highlight-matching-tag",
+    "VisualStudioExptTeam.vscodeintellicode",
+    "esbenp.prettier-vscode",
+    "humao.rest-client",
+    "shardulm94.trailing-spaces",
+    "redhat.vscode-yaml"
+  ]
 }
