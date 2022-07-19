@@ -29,6 +29,6 @@ jobs:
       - name: Code Linting
         run: |
           npm run lint
-      - name: Code Testinh
+      - name: Code Testing
         run: |
           npm test
