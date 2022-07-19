@@ -13,6 +13,7 @@
     "esbenp.prettier-vscode",
     "humao.rest-client",
     "shardulm94.trailing-spaces",
-    "redhat.vscode-yaml"
+    "redhat.vscode-yaml",
+    "stylelint.vscode-stylelint"
   ]
 }

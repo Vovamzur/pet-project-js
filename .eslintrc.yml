@@ -10,6 +10,3 @@ parserOptions:
 extends:
   - eslint:recommended
   - standard
-
-rules:
-  

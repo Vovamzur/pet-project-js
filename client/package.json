@@ -8,6 +8,7 @@
     "lint:css": "npx stylelint \"src/**/*.css\"",
     "lint": "npm run lint:css && npm run lint:js",
     "start": "",
+    "test": "echo \"No tests yet\"",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -20,6 +21,8 @@
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.0",
+    "eslint-config-standard-jsx": "^11.0.0",
+    "eslint-config-standard-react": "^11.0.1",
     "stylelint": "^14.9.1",
     "stylelint-config-standard": "^26.0.0",
     "stylelint-order": "^5.0.0",
