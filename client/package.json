@@ -23,6 +23,7 @@
     "@vitejs/plugin-react": "^2.0.0",
     "eslint-config-standard-jsx": "^11.0.0",
     "eslint-config-standard-react": "^11.0.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "stylelint": "^14.9.1",
     "stylelint-config-standard": "^26.0.0",
     "stylelint-order": "^5.0.0",

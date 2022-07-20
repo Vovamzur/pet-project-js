@@ -10,5 +10,10 @@ settings:
   react:
     version: '18'
 
+plugins:
+  - react-hooks
+
 rules:
   jsx-quotes: ["error", "prefer-double"]
+  react-hooks/rules-of-hooks: "error"
+  react-hooks/exhaustive-deps: "warn"
