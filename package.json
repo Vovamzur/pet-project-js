@@ -1,6 +1,7 @@
 {
   "name": "test-project",
   "private": true,
+  "type": "module",
   "engines": {
     "node": ">=16",
     "npm": ">=8 <9"
@@ -29,13 +30,15 @@
   },
   "devDependencies": {
     "@ls-lint/ls-lint": "^1.11.2",
+    "chalk": "^5.0.1",
     "editorconfig-checker": "^4.0.2",
     "eslint": "^8.20.0",
     "lint-staged": "^13.0.3",
-    "simple-git-hooks": "^2.8.0",
-    "standard": "^17.0.0"
+    "standard": "^17.0.0",
+    "yorkie": "^2.0.0"
   },
-  "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "node scripts/verifyCommit.js"
   }
 }
